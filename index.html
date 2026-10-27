@@ -226,9 +226,19 @@ li::marker{color:var(--muted)}
 .absent span{font-size:13.5px;color:var(--muted)}
 
 /* ---------- findings ---------- */
+#findings{counter-reset:finding}
 .finding{border-top:1px solid var(--rule);padding-top:20px;margin-top:24px}
 .finding:first-of-type{border-top:0;margin-top:8px;padding-top:0}
 .finding h3{font-size:19px;font-weight:600;margin-bottom:8px;max-width:50ch}
+.finding h3::before{
+  counter-increment:finding;
+  content:counter(finding) ". ";
+  color:var(--accent);
+  font-family:"IBM Plex Mono",monospace;
+  font-size:.82em;
+  letter-spacing:.06em;
+  margin-right:6px;
+}
 .finding p{font-size:15px;color:var(--ink-2);max-width:68ch}
 .evidence-line{
   font-size:13.5px;color:var(--muted);border-left:2px solid var(--rule-strong);
@@ -410,7 +420,6 @@ details.ans summary:hover{ color:var(--accent-2) }
     <nav class="rail" aria-label="Contents">
       <h5>Start here</h5>
       <a href="#intro">How to use this guide</a>
-      <a href="#summary">Summary table page</a>
       <h5>Core terms</h5>
       <a href="#identify">Identify</a>
       <a href="#state">State</a>
@@ -464,12 +473,6 @@ details.ans summary:hover{ color:var(--accent-2) }
             <p><strong>How the marks work.</strong> <u>VCAA awards whole marks only</u>. There are no half marks and no partial credit within a mark: for each mark, the assessor decides that the response has met the requirement or it has not. <u>A three-mark question is three separate decisions</u>. This is why the phrasing throughout this guide is always <em>one mark for&hellip;</em> &mdash; each mark has its own requirement, and an answer that half-meets it earns nothing for that mark. It is also why two reworded versions of the same point cannot score twice: the second decision has nothing new to assess.</p>
           </div>
         </details>
-      </section>
-
-      <!-- SUMMARY -->
-      <section id="summary" class="band">
-        <h2>Summary table moved</h2>
-        <p class="lede">The summary table now has its own page so it can hold the exact expectation statement for each command term, including grouped occasional terms.</p>
       </section>
 
       <!-- ============ CORE TERMS ============ -->
