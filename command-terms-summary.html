@@ -29,6 +29,8 @@
   --ink:#181F2A; --ink-2:#3E4956; --muted:#6B7683;
   --rule:#E0DFD8; --rule-strong:#C9C7BE;
   --accent:#0C5C57; --accent-2:#0A7E76; --accent-wash:#E5F0EE;
+  --core-wash:#E5F0EE; --core-ink:#0C5C57;
+  --regular-wash:#F5F0DF; --regular-ink:#7E6212;
   --shadow:0 1px 2px rgba(24,31,42,.06), 0 8px 24px -16px rgba(24,31,42,.28);
 }
 @media (prefers-color-scheme: dark){
@@ -37,6 +39,8 @@
     --ink:#E9EDF2; --ink-2:#C4CDD7; --muted:#8D99A7;
     --rule:#28303A; --rule-strong:#3A444F;
     --accent:#63D2C6; --accent-2:#87E2D8; --accent-wash:#11302D;
+    --core-wash:#11302D; --core-ink:#87E2D8;
+    --regular-wash:#2C2617; --regular-ink:#D9B856;
     --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 26px -18px rgba(0,0,0,.8);
   }
 }
@@ -45,6 +49,8 @@
   --ink:#E9EDF2; --ink-2:#C4CDD7; --muted:#8D99A7;
   --rule:#28303A; --rule-strong:#3A444F;
   --accent:#63D2C6; --accent-2:#87E2D8; --accent-wash:#11302D;
+  --core-wash:#11302D; --core-ink:#87E2D8;
+  --regular-wash:#2C2617; --regular-ink:#D9B856;
   --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 26px -18px rgba(0,0,0,.8);
 }
 *{box-sizing:border-box}
@@ -100,6 +106,10 @@ thead th{
 tbody tr:last-child td{border-bottom:0}
 td.num,th.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
 .term-cell{font-weight:600}
+tbody tr.core td{background:var(--core-wash)}
+tbody tr.core .term-cell{color:var(--core-ink)}
+tbody tr.regular td{background:var(--regular-wash)}
+tbody tr.regular .term-cell{color:var(--regular-ink)}
 
 .theme-toggle{
   position:fixed; top:calc(env(safe-area-inset-top, 0px) + 56px); right:14px; z-index:31;
@@ -136,6 +146,7 @@ td.num,th.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular
       <li><a href="index.html">Command Terms Evidence Guide</a></li>
       <li><a href="#" aria-current="page">Command Terms Summary Table</a></li>
       <li><a href="key-knowledge.html">High-Frequency Key Knowledge</a></li>
+      <li><a href="practice-questions.html">Practice Questions</a></li>
     </ul>
   </nav>
 
@@ -145,7 +156,7 @@ td.num,th.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular
     <p class="sub">Every command term verified in the written-response sections of the 2020&ndash;2025 papers, with mark range, frequency, and the exact expectation statement used under each term in the guide.</p>
   </header>
 
-  <p class="note"><strong>Source:</strong> This table combines the original summary-table wording from the main guide with the exact term-definition statements shown under each command-term section.</p>
+  <p class="note"><strong>Reference:</strong> <a href="https://www.vcaa.vic.edu.au/assessment/vce/glossary-command-terms">VCAA Glossary of command terms</a></p>
 
   <div class="scroller">
     <table>
@@ -153,21 +164,21 @@ td.num,th.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular
         <tr><th>Command term</th><th class="num">Marks seen</th><th class="num">Items 20–25</th><th>What the question is really asking</th><th>Exact expectation statement</th></tr>
       </thead>
       <tbody>
-        <tr><td class="term-cell">Identify</td><td class="num">1–4</td><td class="num">~35</td><td>Name the correct thing. No elaboration unless a second verb asks for it.</td><td>Name or recognise the correct thing from your knowledge or from the material provided.</td></tr>
-        <tr><td class="term-cell">State</td><td class="num">1–4</td><td class="num">~18</td><td>A short, correct answer. One mark per distinct point.</td><td>Give a brief, correct answer without working or elaboration.</td></tr>
-        <tr><td class="term-cell">Describe</td><td class="num">1–4</td><td class="num">~30</td><td>Give the features or characteristics of something, in context.</td><td>Give an account of the features or characteristics of something, or of how something happens.</td></tr>
-        <tr><td class="term-cell">Explain</td><td class="num">2–6</td><td class="num">~33</td><td>Say how or why something works, with the causal link made visible.</td><td>Make the reasons, mechanism or relationship clear &mdash; say how or why, not just what.</td></tr>
-        <tr><td class="term-cell">Justify</td><td class="num">2–4</td><td class="num">16</td><td>Choose one option, argue for it, <em>and</em> argue against the alternative <em>and</em> link to the stimulus.</td><td>Show, prove or defend a decision or point of view with reasoning and evidence, including why the alternative is less suitable.</td></tr>
-        <tr><td class="term-cell">Complete</td><td class="num">2–7</td><td class="num">~18</td><td>Fill in a diagram, test table, data dictionary or pseudocode correctly.</td><td>Fill in the missing parts of a supplied diagram, table, data dictionary or algorithm so that it is correct and consistent.</td></tr>
-        <tr><td class="term-cell">Suggest</td><td class="num">1–4</td><td class="num">~14</td><td>Offer a workable course of action that fits the scenario.</td><td>Put forward a workable idea or course of action for consideration.</td></tr>
-        <tr><td class="term-cell">Outline</td><td class="num">2–4</td><td class="num">6</td><td>Set out the main points briefly &mdash; more than State, less than Describe.</td><td>Set out the main points or features briefly, without full explanation.</td></tr>
-        <tr><td class="term-cell">Discuss</td><td class="num">2–3</td><td class="num">3</td><td>Work through the implications of an issue, not just name it.</td><td>Examine an issue by considering its implications, and reach a reasoned position on it.</td></tr>
-        <tr><td class="term-cell">Compare</td><td class="num">2</td><td class="num">2</td><td>Set two things against each other on the same criterion.</td><td>Set two things side by side and identify how they differ, using the same basis for each.</td></tr>
-        <tr><td class="term-cell">Classify / Categorise</td><td class="num">2–4</td><td class="num">5</td><td>Sort given items into given categories. Usually a table.</td><td>Assign each given item to the correct category from a supplied list.</td></tr>
-        <tr><td class="term-cell">Select / Circle / Choose</td><td class="num">1–4</td><td class="num">~14</td><td>Pick from given options. Usually 1 mark, usually followed by a second verb.</td><td>Pick the correct option or options from those provided.</td></tr>
-        <tr><td class="term-cell">Recommend</td><td class="num">2–4</td><td class="num">4</td><td>Advise a specific action. Always paired with a second verb.</td><td>Advise a specific course of action as the best one available.</td></tr>
-        <tr><td class="term-cell">Propose</td><td class="num">2–3</td><td class="num">4</td><td>Put forward a plan or strategy, usually with named components.</td><td>Put forward a plan, strategy or approach for a stated purpose.</td></tr>
-        <tr><td class="term-cell">List</td><td class="num">2</td><td class="num">3</td><td>Items only. No sentences required.</td><td>Give the required number of items, one per line, without elaboration.</td></tr>
+        <tr class="core"><td class="term-cell">Identify</td><td class="num">1–4</td><td class="num">~35</td><td>Name the correct thing. No elaboration unless a second verb asks for it.</td><td>Name or recognise the correct thing from your knowledge or from the material provided.</td></tr>
+        <tr class="core"><td class="term-cell">State</td><td class="num">1–4</td><td class="num">~18</td><td>A short, correct answer. One mark per distinct point.</td><td>Give a brief, correct answer without working or elaboration.</td></tr>
+        <tr class="core"><td class="term-cell">Describe</td><td class="num">1–4</td><td class="num">~30</td><td>Give the features or characteristics of something, in context.</td><td>Give an account of the features or characteristics of something, or of how something happens.</td></tr>
+        <tr class="core"><td class="term-cell">Explain</td><td class="num">2–6</td><td class="num">~33</td><td>Say how or why something works, with the causal link made visible.</td><td>Make the reasons, mechanism or relationship clear &mdash; say how or why, not just what.</td></tr>
+        <tr class="core"><td class="term-cell">Justify</td><td class="num">2–4</td><td class="num">16</td><td>Choose one option, argue for it, <em>and</em> argue against the alternative <em>and</em> link to the stimulus.</td><td>Show, prove or defend a decision or point of view with reasoning and evidence, including why the alternative is less suitable.</td></tr>
+        <tr class="core"><td class="term-cell">Complete</td><td class="num">2–7</td><td class="num">~18</td><td>Fill in a diagram, test table, data dictionary or pseudocode correctly.</td><td>Fill in the missing parts of a supplied diagram, table, data dictionary or algorithm so that it is correct and consistent.</td></tr>
+        <tr class="regular"><td class="term-cell">Suggest</td><td class="num">1–4</td><td class="num">~14</td><td>Offer a workable course of action that fits the scenario.</td><td>Put forward a workable idea or course of action for consideration.</td></tr>
+        <tr class="regular"><td class="term-cell">Outline</td><td class="num">2–4</td><td class="num">6</td><td>Set out the main points briefly &mdash; more than State, less than Describe.</td><td>Set out the main points or features briefly, without full explanation.</td></tr>
+        <tr class="regular"><td class="term-cell">Discuss</td><td class="num">2–3</td><td class="num">3</td><td>Work through the implications of an issue, not just name it.</td><td>Examine an issue by considering its implications, and reach a reasoned position on it.</td></tr>
+        <tr class="regular"><td class="term-cell">Compare</td><td class="num">2</td><td class="num">2</td><td>Set two things against each other on the same criterion.</td><td>Set two things side by side and identify how they differ, using the same basis for each.</td></tr>
+        <tr class="regular"><td class="term-cell">Classify / Categorise</td><td class="num">2–4</td><td class="num">5</td><td>Sort given items into given categories. Usually a table.</td><td>Assign each given item to the correct category from a supplied list.</td></tr>
+        <tr class="regular"><td class="term-cell">Select / Circle / Choose</td><td class="num">1–4</td><td class="num">~14</td><td>Pick from given options. Usually 1 mark, usually followed by a second verb.</td><td>Pick the correct option or options from those provided.</td></tr>
+        <tr class="regular"><td class="term-cell">Recommend</td><td class="num">2–4</td><td class="num">4</td><td>Advise a specific action. Always paired with a second verb.</td><td>Advise a specific course of action as the best one available.</td></tr>
+        <tr class="regular"><td class="term-cell">Propose</td><td class="num">2–3</td><td class="num">4</td><td>Put forward a plan or strategy, usually with named components.</td><td>Put forward a plan, strategy or approach for a stated purpose.</td></tr>
+        <tr class="regular"><td class="term-cell">List</td><td class="num">2</td><td class="num">3</td><td>Items only. No sentences required.</td><td>Give the required number of items, one per line, without elaboration.</td></tr>
         <tr><td class="term-cell">Name</td><td class="num">1</td><td class="num">1</td><td>The exact term, nothing else.</td><td>Give the exact term only.</td></tr>
         <tr><td class="term-cell">Define</td><td class="num">1</td><td class="num">1</td><td>The study-design meaning of the term.</td><td>Give the study-design meaning.</td></tr>
         <tr><td class="term-cell">Construct</td><td class="num">2</td><td class="num">1</td><td>Build a complete set &mdash; here, a set of tests.</td><td>Produce the requested artefact with all stated parts.</td></tr>
