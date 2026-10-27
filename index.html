@@ -243,12 +243,16 @@ li::marker{color:var(--muted)}
 .check-card h3{font-size:19px;font-weight:600;margin-bottom:14px}
 .check-card ul{list-style:none;padding:0;margin:0}
 .check-card li{
-  display:flex;gap:11px;align-items:flex-start;font-size:14.5px;color:var(--ink-2);
-  padding:7px 0;border-bottom:1px dashed var(--rule);
+  position:relative;
+  font-size:14.5px;color:var(--ink-2);
+  padding:7px 0 7px 25px;
+  border-bottom:1px dashed var(--rule);
+  text-align:left;
 }
 .check-card li:last-child{border-bottom:0}
 .box{
-  flex:0 0 auto;width:14px;height:14px;border:1.5px solid var(--rule-strong);border-radius:2px;margin-top:4px;
+  position:absolute;left:0;top:11px;
+  width:14px;height:14px;border:1.5px solid var(--rule-strong);border-radius:2px;
 }
 
 /* ---------- footer ---------- */
@@ -325,6 +329,19 @@ img{ max-width:100% }
 .toc-mobile nav{ display:grid; gap:2px; padding:4px 18px 18px; border-top:1px solid var(--rule) }
 .toc-mobile nav a{ font-size:14px; color:var(--ink-2); text-decoration:none; padding:4px 0 }
 .toc-mobile nav b{ display:block; font-family:"IBM Plex Mono",monospace; font-size:10px; letter-spacing:.13em; text-transform:uppercase; color:var(--muted); margin-top:12px }
+
+details.ans{ border-top:1px solid var(--rule); margin-top:8px }
+details.ans summary{
+  cursor:pointer; list-style:none;
+  font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.11em;
+  text-transform:uppercase; font-weight:600; color:var(--accent);
+  padding:12px 0;
+}
+details.ans summary::-webkit-details-marker{ display:none }
+details.ans summary::after{ content:"  ▸"; color:var(--muted) }
+details.ans[open] summary::after{ content:"  ▾" }
+details.ans summary:hover{ color:var(--accent-2) }
+.ans-body{ padding:0 0 2px }
 
 .rail{ scroll-target-group: auto }
 .rail a:target-current, .rail a.is-current{ color:var(--accent-2); border-left-color:var(--accent-2); font-weight:600 }
@@ -435,13 +452,13 @@ img{ max-width:100% }
         <div class="legend">
           <div><span class="tag paper">Paper</span>Taken from the wording of the examination question itself.</div>
           <div><span class="tag report">Report</span>Taken from the VCAA assessment report — what marks were actually awarded for, and what students got wrong.</div>
-          <div><span class="tag read">Teaching</span>Our reading of the pattern. Useful, but not something VCAA has stated. Where a teaching note and report evidence disagree, the report wins.</div>
+          <div><span class="tag read">Teacher</span>Our reading of the pattern. Useful, but not something VCAA has stated. Where a teacher note and report evidence disagree, the report wins.</div>
         </div>
 
         <div class="prose" style="margin-top:24px">
-          <p>A word on how the paper is built. Section A is 20 multiple-choice questions. Section B is short-answer, five or six questions worth 20 marks in total. Section C is a case study, 13&ndash;19 questions worth 60 marks, and <em>every</em> answer in it must be applied to the case study. Command terms behave the same way in Sections B and C, but Section C adds a second requirement on top of the command term: the case study reference. That single difference accounts for a large share of the marks lost each year.</p>
+          <p>A word on how the paper is built. Section A is 20 multiple-choice questions. Section B is short-answer, five or six questions worth 20 marks in total. Section C is a case study, 13&ndash;19 questions worth 60 marks, and <em>every</em> answer in it must be applied to the case study. Command terms behave the same way in Sections B and C, but <b>Section C adds a second requirement on top of the command term: the case study reference</b>. That single difference accounts for a large share of the marks lost each year.</p>
           <p>Most questions carry a <em>compound</em> instruction &mdash; <span style="font-style:italic">identify and explain</span>, <span style="font-style:italic">state&hellip; and provide one reason</span>, <span style="font-style:italic">describe&hellip; and recommend</span>. Each verb is a separate job, and the marks split across them. Missing the second verb is the most common way a strong answer ends up with half the marks.</p>
-          <p><strong>How the marks work.</strong> VCAA awards whole marks only. There are no half marks and no partial credit within a mark: for each mark, the assessor decides that the response has met the requirement or it has not. A three-mark question is three separate decisions. This is why the phrasing throughout this guide is always <em>one mark for&hellip;</em> &mdash; each mark has its own requirement, and an answer that half-meets it earns nothing for that mark. It is also why two reworded versions of the same point cannot score twice: the second decision has nothing new to assess.</p>
+          <p><strong>How the marks work.</strong> <u>VCAA awards whole marks only</u>. There are no half marks and no partial credit within a mark: for each mark, the assessor decides that the response has met the requirement or it has not. <u>A three-mark question is three separate decisions</u>. This is why the phrasing throughout this guide is always <em>one mark for&hellip;</em> &mdash; each mark has its own requirement, and an answer that half-meets it earns nothing for that mark. It is also why two reworded versions of the same point cannot score twice: the second decision has nothing new to assess.</p>
         </div>
       </section>
 
@@ -461,7 +478,7 @@ img{ max-width:100% }
               <tr><td class="term-cell">Describe</td><td class="num">1–4</td><td class="num">~30</td><td>Give the features or characteristics of something, in context.</td></tr>
               <tr><td class="term-cell">State</td><td class="num">1–4</td><td class="num">~18</td><td>A short, correct answer. One mark per distinct point.</td></tr>
               <tr><td class="term-cell">Complete</td><td class="num">2–7</td><td class="num">~18</td><td>Fill in a diagram, test table, data dictionary or pseudocode correctly.</td></tr>
-              <tr><td class="term-cell">Justify</td><td class="num">2–4</td><td class="num">16</td><td>Choose one option, argue for it, <em>and</em> argue against the alternative.</td></tr>
+              <tr><td class="term-cell">Justify</td><td class="num">2–4</td><td class="num">16</td><td>Choose one option, argue for it, <em>and</em> argue against the alternative <em>and</em> link to the stimulus.</td></tr>
               <tr><td class="term-cell">Suggest</td><td class="num">1–4</td><td class="num">~14</td><td>Offer a workable course of action that fits the scenario.</td></tr>
               <tr><td class="term-cell">Select / Circle / Choose</td><td class="num">1–4</td><td class="num">~14</td><td>Pick from given options. Usually 1 mark, usually followed by a second verb.</td></tr>
               <tr><td class="term-cell">Outline</td><td class="num">2–4</td><td class="num">6</td><td>Set out the main points briefly &mdash; more than State, less than Describe.</td></tr>
@@ -480,7 +497,6 @@ img{ max-width:100% }
             </tbody>
           </table>
         </div>
-        <p style="font-size:13px;color:var(--muted);margin-top:12px;max-width:68ch">Counts include each occurrence of the term in a Section B or Section C question part, including compound questions where it appears alongside another verb. Section A (multiple choice) is excluded.</p>
       </section>
 
       <!-- ============ CORE TERMS ============ -->
@@ -749,7 +765,7 @@ img{ max-width:100% }
             <li><span class="tag report">Report</span>1 mark for why that option is suitable, in terms of the scenario.</li>
             <li><span class="tag report">Report</span>1 mark for why the alternative is <em>not</em> suitable &mdash; this is the mark most often lost.</li>
             <li><span class="tag report">Report</span>1 further mark, in 4-mark items, for explicit application to the case study or to stated evaluation criteria.</li>
-            <li><span class="tag read">Teaching</span>Treat a <em>Justify</em> item as a four-move answer &mdash; choice, pro, con, evidence &mdash; even when it is worth 3 marks. The fourth move costs one sentence and is often what separates 2 from 3.</li>
+            <li><span class="tag read">Teacher</span>Treat a <em>Justify</em> item as a four-move answer &mdash; choice, pro, con, evidence &mdash; even when it is worth 3 marks. The fourth move costs one sentence and is often what separates 2 from 3.</li>
           </ul>
 
           <h4>Examiner evidence</h4>
@@ -1311,13 +1327,42 @@ img{ max-width:100% }
             <span class="chip">1–2 marks</span>
             <span class="chip count">3 items · 2020–2025</span>
           </div>
+          <p class="defn">Name: give the exact term only.<br>Define: give the study-design meaning.<br>Construct: produce the requested artefact with all stated parts.</p>
+          <h4>Typical mark breakdown</h4>
           <ul>
-            <li><span class="tag paper">Paper</span><strong>Name</strong> &mdash; 2023 Section C Q1a, 1 mark, the specific development model. <span class="tag report">Report</span>The answer was "spiral"; fewer than half the cohort had it. <em>Name</em> means the exact term and nothing more.</li>
-            <li><span class="tag paper">Paper</span><strong>Define</strong> &mdash; 2022 Section C Q5a, 1 mark, the term "affordance". <span class="tag report">Report</span>Only 22% earned the mark; many defined it in terms of cost and budget. A <em>Define</em> question wants the study-design meaning in one sentence.</li>
-            <li><span class="tag paper">Paper</span><strong>Construct</strong> &mdash; 2023 Section C Q10a, 2 marks, a set of tests for file-extension checking. <span class="tag report">Report</span>Marks needed a valid case and an invalid case, each with a realistic file name and its expected result. Answers giving only an extension (.mp4) rather than a file name (Message.mp4) were not awarded.</li>
+            <li><span class="tag report">Report</span><strong>Name</strong> is usually 1 mark and all-or-nothing: exact term only.</li>
+            <li><span class="tag report">Report</span><strong>Define</strong> is usually 1 mark and all-or-nothing: exact study-design meaning.</li>
+            <li><span class="tag report">Report</span><strong>Construct</strong> is usually 2 marks: one mark for each required case/component, including expected result format.</li>
           </ul>
-          <div class="callout">
-            <span class="tag read">Teaching</span><strong>Construct is the sibling of Complete.</strong> <em>Complete</em> gives you a partly built artefact; <em>Construct</em> gives you none. Both are marked on coverage &mdash; does the set of tests exercise every branch?
+          <h4>Examiner evidence</h4>
+          <div class="ev">
+            <div class="ev-box bad">
+              <h6>Where marks were lost</h6>
+              <ul>
+                <li>Naming something close but not exact: in 2023 Section C Q1a, many students did not supply "spiral".</li>
+                <li>Defining in the wrong context: in 2022 Section C Q5a, many defined affordance using cost and budget ideas.</li>
+                <li>Constructing incomplete test data: in 2023 Section C Q10a, responses used just an extension (.mp4) instead of realistic filenames and outputs.</li>
+              </ul>
+            </div>
+            <div class="ev-box good">
+              <h6>What full-mark answers did</h6>
+              <ul>
+                <li>Used the exact study-design term with no padding sentence.</li>
+                <li>Defined the term in one precise sentence using the study-design meaning.</li>
+                <li>For construct items, included both valid and invalid cases with expected results.</li>
+              </ul>
+            </div>
+          </div>
+          <h4>Historical evidence</h4>
+          <div class="scroller">
+            <table>
+              <thead><tr><th class="num">Year</th><th class="q">Section / Q</th><th class="num">Marks</th><th>How the term was used</th></tr></thead>
+              <tbody>
+                <tr><td class="yr">2023</td><td class="q">C Q1a</td><td class="num">1</td><td>Name the specific development model used in the scenario</td></tr>
+                <tr><td class="yr">2022</td><td class="q">C Q5a</td><td class="num">1</td><td>Define the term "affordance"</td></tr>
+                <tr><td class="yr">2023</td><td class="q">C Q10a</td><td class="num">2</td><td>Construct a set of tests for file-extension checking</td></tr>
+              </tbody>
+            </table>
           </div>
         </article>
 
@@ -1327,11 +1372,42 @@ img{ max-width:100% }
             <span class="chip">1–2 marks</span>
             <span class="chip count">3 items · 2020–2021</span>
           </div>
+          <p class="defn">Determine: make a decision using the given data.<br>Calculate: provide the correct numeric result in the requested unit.</p>
+          <h4>Typical mark breakdown</h4>
           <ul>
-            <li><span class="tag paper">Paper</span><strong>Determine</strong> &mdash; 2021 Section C Q2b (2 marks): decide whether a team should be concerned about falling behind. <span class="tag report">Report</span>The marks went to the reasoning &mdash; the dependent task was five weeks away &mdash; not to the yes/no.</li>
-            <li><span class="tag paper">Paper</span><strong>Determine</strong> &mdash; 2020 Section C Q10c (1 mark): the number of binary-search iterations needed to establish a value is absent. <span class="tag report">Report</span>The answer was four; the report reminds students to practise searching and sorting algorithms by hand.</li>
-            <li><span class="tag paper">Paper</span><strong>Calculate</strong> &mdash; 2021 Section C Q2c (1 mark): the critical path, in weeks. <span class="tag report">Report</span>The answer was 13 weeks, reached by 32% of students. <em>Calculate</em> wants a number in the units the question names.</li>
+            <li><span class="tag report">Report</span><strong>Determine</strong> can be 2 marks: one for the decision and one for evidence-based reasoning.</li>
+            <li><span class="tag report">Report</span><strong>Calculate</strong> is typically 1 mark for the correct value, in the units named by the question.</li>
           </ul>
+          <h4>Examiner evidence</h4>
+          <div class="ev">
+            <div class="ev-box bad">
+              <h6>Where marks were lost</h6>
+              <ul>
+                <li>Giving a yes/no determination without the timeline or dependency evidence behind it.</li>
+                <li>Not practising algorithm steps by hand, leading to wrong iteration counts in binary search.</li>
+                <li>Providing a number without the required unit or with arithmetic errors on critical path totals.</li>
+              </ul>
+            </div>
+            <div class="ev-box good">
+              <h6>What full-mark answers did</h6>
+              <ul>
+                <li>Linked determination decisions directly to the dates/dependencies given in the stimulus.</li>
+                <li>Stepped through each algorithm pass methodically rather than estimating.</li>
+                <li>Reported calculated values exactly in the unit requested (for example, weeks).</li>
+              </ul>
+            </div>
+          </div>
+          <h4>Historical evidence</h4>
+          <div class="scroller">
+            <table>
+              <thead><tr><th class="num">Year</th><th class="q">Section / Q</th><th class="num">Marks</th><th>How the term was used</th></tr></thead>
+              <tbody>
+                <tr><td class="yr">2021</td><td class="q">C Q2b</td><td class="num">2</td><td>Determine whether the team should be concerned about project slippage</td></tr>
+                <tr><td class="yr">2020</td><td class="q">C Q10c</td><td class="num">1</td><td>Determine how many binary-search iterations were required</td></tr>
+                <tr><td class="yr">2021</td><td class="q">C Q2c</td><td class="num">1</td><td>Calculate the critical path duration in weeks</td></tr>
+              </tbody>
+            </table>
+          </div>
         </article>
 
         <article class="term" id="write">
@@ -1340,13 +1416,48 @@ img{ max-width:100% }
             <span class="chip">1–4 marks</span>
             <span class="chip count">~8 items · 2020–2025</span>
           </div>
+          <p class="defn">Write: provide the exact required text/notation.<br>Rewrite: provide the full corrected line/text exactly.<br>Draw: place the correct diagram element in the correct position.</p>
+          <h4>Typical mark breakdown</h4>
           <ul>
-            <li><span class="tag paper">Paper</span><strong>Write</strong> &mdash; 2024 Section C Q13 (3 marks), pseudocode for a payment function; 2024 Section C Q8a (1 mark), an additional evaluation criterion; 2025 Section C Q4a (4 marks), the four missing DFD labels.</li>
-            <li><span class="tag paper">Paper</span><strong>Rewrite</strong> &mdash; 2024 C Q12c, 2021 C Q7c and 2020 C Q9c, all 1 mark: rewrite the faulty line of pseudocode. <span class="tag report">Report</span>The whole line must be written out. In 2024 the fix was changing &gt; to &gt;=; answers expressing the operator informally, or reversing it, earned nothing.</li>
-            <li><span class="tag paper">Paper</span><strong>Draw</strong> &mdash; 2024 Section C Q3b (1 mark), an association on a use case diagram. <span class="tag report">Report</span>Many students left it blank or attached the use case to the wrong actor.</li>
+            <li><span class="tag report">Report</span><strong>Write</strong> can range from 1 to 4 marks depending on how many labels, lines or components are required.</li>
+            <li><span class="tag report">Report</span><strong>Rewrite</strong> is commonly 1 mark and requires the entire corrected line, not just the changed symbol.</li>
+            <li><span class="tag report">Report</span><strong>Draw</strong> is usually 1 mark for the correct connection/shape in the right location.</li>
           </ul>
+          <h4>Examiner evidence</h4>
+          <div class="ev">
+            <div class="ev-box bad">
+              <h6>Where marks were lost</h6>
+              <ul>
+                <li>Giving informal descriptions instead of writing the exact pseudocode line required.</li>
+                <li>Using incorrect pseudocode conventions (assignment/equality symbols, missing End If, inconsistent indentation).</li>
+                <li>Leaving diagram-drawing items blank or attaching links to the wrong actor/element.</li>
+              </ul>
+            </div>
+            <div class="ev-box good">
+              <h6>What full-mark answers did</h6>
+              <ul>
+                <li>Rewrote the full corrected line exactly as pseudocode.</li>
+                <li>Matched notation and layout conventions used in the exam style.</li>
+                <li>Placed the required diagram component in the correct position and connection.</li>
+              </ul>
+            </div>
+          </div>
           <div class="callout">
-            <span class="tag report">Report</span><strong>Pseudocode conventions are marked, every year.</strong> The 2024 report lists the recurring errors directly: the equals sign used for assignment, a double equals used for equivalence, and a missing End If. The 2020 report adds inconsistent operators and unindented code. These are free marks.
+            <span class="tag report">Report</span><strong>Pseudocode conventions are marked, every year.</strong> The 2024 report lists the <b>recurring errors</b> directly: the equals sign used for assignment, a double equals used for equivalence, and a missing End If. The 2020 report adds inconsistent operators and unindented code. These are free marks.
+          </div>
+          <h4>Historical evidence</h4>
+          <div class="scroller">
+            <table>
+              <thead><tr><th class="num">Year</th><th class="q">Section / Q</th><th class="num">Marks</th><th>How the term was used</th></tr></thead>
+              <tbody>
+                <tr><td class="yr">2025</td><td class="q">C Q4a</td><td class="num">4</td><td>Write the four missing labels in a DFD</td></tr>
+                <tr><td class="yr">2024</td><td class="q">C Q13</td><td class="num">3</td><td>Write pseudocode for a payment function</td></tr>
+                <tr><td class="yr">2024</td><td class="q">C Q12c</td><td class="num">1</td><td>Rewrite one faulty line of pseudocode correctly</td></tr>
+                <tr><td class="yr">2024</td><td class="q">C Q3b</td><td class="num">1</td><td>Draw the missing association on a use case diagram</td></tr>
+                <tr><td class="yr">2021</td><td class="q">C Q7c</td><td class="num">1</td><td>Rewrite an incorrect pseudocode line</td></tr>
+                <tr><td class="yr">2020</td><td class="q">C Q9c</td><td class="num">1</td><td>Rewrite a pseudocode line to fix the condition</td></tr>
+              </tbody>
+            </table>
           </div>
         </article>
 
@@ -1361,9 +1472,6 @@ img{ max-width:100% }
             <div><b>Evaluate</b><span>Not used in six years. Evaluation is examined through <em>Justify</em> against supplied criteria instead.</span></div>
             <div><b>Analyse</b><span>Not used in six years, despite "analysis" being a stage of the problem-solving methodology.</span></div>
             <div><b>Distinguish</b><span>Not used. The work is done by <em>Compare</em> and by two-part <em>Explain</em> items.</span></div>
-          </div>
-          <div class="callout" style="margin-top:22px">
-            <span class="tag read">Teaching</span>Don't spend revision time rehearsing these three. If you meet one in a practice paper from another source, treat <em>Evaluate</em> as <em>Justify against criteria</em>, and <em>Analyse</em> as <em>Explain with consequences</em>.
           </div>
         </article>
       </section>
@@ -1437,11 +1545,11 @@ img{ max-width:100% }
           <div class="check-card">
             <h3>Before writing</h3>
             <ul>
-              <li><span class="box"></span>Underline the command term. If there are two verbs, underline both.</li>
+              <li><span class="box"></span>Highlight the command term. If there are two verbs, underline both.</li>
               <li><span class="box"></span>Note the marks, and count the ruled lines. Plan roughly one distinct point per mark.</li>
               <li><span class="box"></span>Decide what the term actually wants: a name, a mechanism, a comparison, a decision, or a completed artefact.</li>
-              <li><span class="box"></span>Check for a number word &mdash; <em>two</em> risks, <em>three</em> reasons &mdash; and plan that many separate ideas.</li>
-              <li><span class="box"></span>If this is Section C, find the detail in the insert you will refer to.</li>
+              <li><span class="box"></span>Check for a <em>two</em> risks, <em>three</em> reasons and plan that many separate ideas.</li>
+              <li><span class="box"></span>If this is Section C, find the detail in the case study insert you will refer to.</li>
               <li><span class="box"></span>If options are named, decide which one you are backing before you start the sentence.</li>
               <li><span class="box"></span>If criteria are supplied, list them in the margin so each gets used.</li>
             </ul>
@@ -1450,13 +1558,13 @@ img{ max-width:100% }
           <div class="check-card">
             <h3>Before moving on</h3>
             <ul>
-              <li><span class="box"></span>Have I answered every labelled part &mdash; a., b., c., and every line in the table?</li>
+              <li><span class="box"></span>Have I answered every labelled part: a., b., c., and every line in the table?</li>
               <li><span class="box"></span>Are my two points actually different, or is the second one the first reworded?</li>
-              <li><span class="box"></span>Have I said why the alternative is <em>less</em> suitable, where a choice was involved?</li>
+              <li><span class="box"></span>Have I said why the alternative is <b>less</b> suitable, where a choice was involved?</li>
               <li><span class="box"></span>Have I named people, data or figures from the case study?</li>
               <li><span class="box"></span>Have I used study-design terms, spelled out in full, rather than near-synonyms?</li>
               <li><span class="box"></span>If I cited a law: full name, year, and (Cth) or (Vic)?</li>
-              <li><span class="box"></span>For pseudocode: assignment arrows, matching End If, consistent indentation?</li>
+              <li><span class="box"></span>For pseudocode: assignment arrows, comparision =, matching End If, consistent indentation, text <b>excatly</b> as given?</li>
               <li><span class="box"></span>Does my answer fit the lines provided? If it badly overruns, I have probably answered a different question.</li>
             </ul>
           </div>
@@ -1534,6 +1642,51 @@ img{ max-width:100% }
   window.addEventListener('scroll', schedule, { passive: true });
   window.addEventListener('resize', schedule, { passive: true });
   pick();
+})();
+
+/* collapse all Historical evidence tables behind a show link */
+(function () {
+  var headings = Array.prototype.slice.call(document.querySelectorAll('h4'));
+  headings.forEach(function (heading) {
+    if (heading.textContent.trim().toLowerCase() !== 'historical evidence') return;
+    var scroller = heading.nextElementSibling;
+    if (!scroller || !scroller.classList || !scroller.classList.contains('scroller')) return;
+
+    var details = document.createElement('details');
+    details.className = 'ans';
+
+    var summary = document.createElement('summary');
+    summary.textContent = 'Show historical evidence';
+
+    var body = document.createElement('div');
+    body.className = 'ans-body';
+
+    heading.parentNode.insertBefore(details, heading);
+    details.appendChild(summary);
+    details.appendChild(body);
+    body.appendChild(scroller);
+    heading.remove();
+  });
+})();
+
+/* collapse finding evidence lines behind a show link */
+(function () {
+  var lines = Array.prototype.slice.call(document.querySelectorAll('p.evidence-line'));
+  lines.forEach(function (line) {
+    var details = document.createElement('details');
+    details.className = 'ans';
+
+    var summary = document.createElement('summary');
+    summary.textContent = 'Show evidence';
+
+    var body = document.createElement('div');
+    body.className = 'ans-body';
+
+    line.parentNode.insertBefore(details, line);
+    details.appendChild(summary);
+    details.appendChild(body);
+    body.appendChild(line);
+  });
 })();
 </script>
 
