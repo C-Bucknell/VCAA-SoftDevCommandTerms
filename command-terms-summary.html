@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<script>
+{ try { var cs = localStorage.getItem("color-scheme");
+  if (cs === "light" || cs === "dark") {
+    document.documentElement.setAttribute("data-theme", cs);
+    var initMeta = document.querySelector('meta[name="color-scheme"]');
+    if (initMeta) initMeta.setAttribute('content', cs);
+  } } catch (e) {} }
+</script>
+<title>Command Terms Summary Table</title>
+<meta name="description" content="Standalone summary table of command terms used in VCE Software Development examinations, including exact expectation statements.">
+<meta name="author" content="Chris Bucknell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Command Terms Summary Table">
+<meta property="og:description" content="Standalone summary table of command terms with marks, frequency and exact response expectations.">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%8B%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#FAF9F6; --surface:#FFFFFF; --surface-2:#F2F1EC;
+  --ink:#181F2A; --ink-2:#3E4956; --muted:#6B7683;
+  --rule:#E0DFD8; --rule-strong:#C9C7BE;
+  --accent:#0C5C57; --accent-2:#0A7E76; --accent-wash:#E5F0EE;
+  --shadow:0 1px 2px rgba(24,31,42,.06), 0 8px 24px -16px rgba(24,31,42,.28);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#10141A; --surface:#171C23; --surface-2:#1E242C;
+    --ink:#E9EDF2; --ink-2:#C4CDD7; --muted:#8D99A7;
+    --rule:#28303A; --rule-strong:#3A444F;
+    --accent:#63D2C6; --accent-2:#87E2D8; --accent-wash:#11302D;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 26px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#10141A; --surface:#171C23; --surface-2:#1E242C;
+  --ink:#E9EDF2; --ink-2:#C4CDD7; --muted:#8D99A7;
+  --rule:#28303A; --rule-strong:#3A444F;
+  --accent:#63D2C6; --accent-2:#87E2D8; --accent-wash:#11302D;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 26px -18px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--paper); color:var(--ink);
+  font-family:"Public Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1140px;margin:0 auto;padding-inline:20px;padding-block:0 72px}
+h1,h2,h3,h4{font-family:"Fraunces","Iowan Old Style",Georgia,serif;text-wrap:balance;margin:0;line-height:1.18;letter-spacing:-.005em}
+p{margin:0 0 .85em}
+a{color:var(--accent-2)}
+
+.sitenav{
+  position:sticky; top:env(safe-area-inset-top, 0px); z-index:30;
+  margin-inline:-20px; padding-inline:20px;
+  background:var(--paper);
+  border-bottom:1px solid var(--rule);
+}
+.sitenav ul{display:flex;gap:4px;align-items:center;list-style:none;margin:0;padding:0;overflow-x:auto}
+.sitenav li{margin:0;flex:0 0 auto}
+.sitenav a{
+  display:block; text-decoration:none; white-space:nowrap;
+  font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:11.5px; letter-spacing:.06em; color:var(--muted);
+  padding:13px 12px; border-bottom:2px solid transparent;
+}
+.sitenav a:hover{color:var(--ink)}
+.sitenav a[aria-current="page"]{color:var(--accent);border-bottom-color:var(--accent);font-weight:600}
+.sitenav .brand{
+  font-family:"Fraunces",Georgia,serif; font-size:13px; font-weight:600;
+  color:var(--ink-2); padding-right:16px; margin-right:4px; border-right:1px solid var(--rule);
+  white-space:nowrap;
+}
+@media (max-width:560px){ .sitenav .brand{display:none} }
+
+.mast{padding-block:52px 30px;border-bottom:2px solid var(--ink);margin-bottom:26px}
+.eyebrow{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);margin:0 0 14px;font-weight:600}
+.mast h1{font-size:clamp(30px,5.8vw,50px);font-weight:600;max-width:18ch}
+.mast .sub{font-size:clamp(16px,2.1vw,19px);color:var(--ink-2);max-width:none;margin-top:14px;line-height:1.5}
+
+.note{background:var(--surface);border:1px solid var(--rule);border-left:3px solid var(--accent);border-radius:4px;padding:14px 18px;margin:0 0 20px;color:var(--ink-2)}
+
+.scroller{overflow-x:auto;border:1px solid var(--rule);border-radius:4px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14px;min-width:760px}
+caption{text-align:left;font-size:13px;color:var(--muted);padding:0 0 9px;font-family:"IBM Plex Mono",monospace}
+th,td{padding:9px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--rule)}
+thead th{
+  font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--muted);font-weight:600;background:var(--surface-2);border-bottom:1px solid var(--rule-strong);
+}
+tbody tr:last-child td{border-bottom:0}
+td.num,th.num{font-family:"IBM Plex Mono",monospace;font-variant-numeric:tabular-nums;white-space:nowrap;text-align:right}
+.term-cell{font-weight:600}
+
+.theme-toggle{
+  position:fixed; top:calc(env(safe-area-inset-top, 0px) + 56px); right:14px; z-index:31;
+  display:inline-flex; align-items:center; gap:7px;
+  font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace; font-size:11.5px;
+  letter-spacing:.04em; color:var(--ink-2); background:var(--surface);
+  border:1px solid var(--rule); border-radius:999px; padding:7px 13px 7px 11px;
+  cursor:pointer; box-shadow:var(--shadow); transition:border-color .15s ease, color .15s ease;
+}
+.theme-toggle:hover{ border-color:var(--rule-strong); color:var(--ink) }
+.theme-toggle svg{ width:14px; height:14px; flex:0 0 auto; fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round }
+.theme-toggle .tt-sun{ display:none } .theme-toggle .tt-moon{ display:block }
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]) .theme-toggle .tt-sun{ display:block }
+  :root:not([data-theme="light"]) .theme-toggle .tt-moon{ display:none }
+}
+:root[data-theme="dark"] .theme-toggle .tt-sun{ display:block }
+:root[data-theme="dark"] .theme-toggle .tt-moon{ display:none }
+@media (max-width:460px){ .theme-toggle .tt-label{ display:none } .theme-toggle{ padding:8px; border-radius:50% } }
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" type="button" id="themeToggle" aria-live="polite">
+  <svg class="tt-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+  <svg class="tt-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.4M12 19.6V22M2 12h2.4M19.6 12H22M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"/></svg>
+  <span class="tt-label" id="themeLabel">Dark</span>
+</button>
+
+<div class="wrap">
+  <nav class="sitenav" aria-label="Site">
+    <ul>
+      <li><span class="brand">VCE Software Development</span></li>
+      <li><a href="index.html">Command Terms Evidence Guide</a></li>
+      <li><a href="#" aria-current="page">Command Terms Summary Table</a></li>
+      <li><a href="key-knowledge.html">High-Frequency Key Knowledge</a></li>
+    </ul>
+  </nav>
+
+  <header class="mast">
+    <p class="eyebrow">VCE Applied Computing · Units 3 &amp; 4</p>
+    <h1>Command Terms Summary Table</h1>
+    <p class="sub">Every command term verified in the written-response sections of the 2020&ndash;2025 papers, with mark range, frequency, and the exact expectation statement used under each term in the guide.</p>
+  </header>
+
+  <p class="note"><strong>Source of expectations:</strong> The final column mirrors the term-definition statement shown under each command-term section in the main guide.</p>
+
+  <div class="scroller">
+    <table>
+      <thead>
+        <tr><th>Command term</th><th class="num">Marks seen</th><th class="num">Items 20–25</th><th>What is expected</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="term-cell">Identify</td><td class="num">1–4</td><td class="num">~35</td><td>Name or recognise the correct thing from your knowledge or from the material provided.</td></tr>
+        <tr><td class="term-cell">State</td><td class="num">1–4</td><td class="num">~18</td><td>Give a brief, correct answer without working or elaboration.</td></tr>
+        <tr><td class="term-cell">Describe</td><td class="num">1–4</td><td class="num">~30</td><td>Give an account of the features or characteristics of something, or of how something happens.</td></tr>
+        <tr><td class="term-cell">Explain</td><td class="num">2–6</td><td class="num">~33</td><td>Make the reasons, mechanism or relationship clear &mdash; say how or why, not just what.</td></tr>
+        <tr><td class="term-cell">Justify</td><td class="num">2–4</td><td class="num">16</td><td>Show, prove or defend a decision or point of view with reasoning and evidence, including why the alternative is less suitable.</td></tr>
+        <tr><td class="term-cell">Complete</td><td class="num">2–7</td><td class="num">~18</td><td>Fill in the missing parts of a supplied diagram, table, data dictionary or algorithm so that it is correct and consistent.</td></tr>
+        <tr><td class="term-cell">Suggest</td><td class="num">1–4</td><td class="num">~14</td><td>Put forward a workable idea or course of action for consideration.</td></tr>
+        <tr><td class="term-cell">Outline</td><td class="num">2–4</td><td class="num">6</td><td>Set out the main points or features briefly, without full explanation.</td></tr>
+        <tr><td class="term-cell">Discuss</td><td class="num">2–3</td><td class="num">3</td><td>Examine an issue by considering its implications, and reach a reasoned position on it.</td></tr>
+        <tr><td class="term-cell">Compare</td><td class="num">2</td><td class="num">2</td><td>Set two things side by side and identify how they differ, using the same basis for each.</td></tr>
+        <tr><td class="term-cell">Classify / Categorise</td><td class="num">2–4</td><td class="num">5</td><td>Assign each given item to the correct category from a supplied list.</td></tr>
+        <tr><td class="term-cell">Select / Circle / Choose</td><td class="num">1–4</td><td class="num">~14</td><td>Pick the correct option or options from those provided.</td></tr>
+        <tr><td class="term-cell">Recommend</td><td class="num">2–4</td><td class="num">4</td><td>Advise a specific course of action as the best one available.</td></tr>
+        <tr><td class="term-cell">Propose</td><td class="num">2–3</td><td class="num">4</td><td>Put forward a plan, strategy or approach for a stated purpose.</td></tr>
+        <tr><td class="term-cell">List</td><td class="num">2</td><td class="num">3</td><td>Give the required number of items, one per line, without elaboration.</td></tr>
+        <tr><td class="term-cell">Name</td><td class="num">1</td><td class="num">1</td><td>Give the exact term only.</td></tr>
+        <tr><td class="term-cell">Define</td><td class="num">1</td><td class="num">1</td><td>Give the study-design meaning.</td></tr>
+        <tr><td class="term-cell">Construct</td><td class="num">2</td><td class="num">1</td><td>Produce the requested artefact with all stated parts.</td></tr>
+        <tr><td class="term-cell">Determine</td><td class="num">1–2</td><td class="num">2</td><td>Make a decision using the given data.</td></tr>
+        <tr><td class="term-cell">Calculate</td><td class="num">1</td><td class="num">1</td><td>Provide the correct numeric result in the requested unit.</td></tr>
+        <tr><td class="term-cell">Write</td><td class="num">1–4</td><td class="num">~8</td><td>Provide the exact required text/notation.</td></tr>
+        <tr><td class="term-cell">Rewrite</td><td class="num">1</td><td class="num">3</td><td>Provide the full corrected line/text exactly.</td></tr>
+        <tr><td class="term-cell">Draw</td><td class="num">1</td><td class="num">1</td><td>Place the correct diagram element in the correct position.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var meta = document.querySelector('meta[name="color-scheme"]');
+  var btn = document.getElementById('themeToggle'), label = document.getElementById('themeLabel');
+  var mq = window.matchMedia('(prefers-color-scheme: dark)');
+  function stored(){ try { return localStorage.getItem('color-scheme'); } catch (e) { return null; } }
+  function apply(){
+    var pin = stored();
+    if (pin === 'dark' || pin === 'light') { root.setAttribute('data-theme', pin); if (meta) meta.setAttribute('content', pin); }
+    else { root.removeAttribute('data-theme'); if (meta) meta.setAttribute('content', 'light dark'); }
+    if (!btn || !label) return;
+    if (pin) { label.textContent = 'System'; btn.setAttribute('aria-label','Use the system colour theme'); btn.title = 'Pinned to ' + pin + ' — switch back to your system setting'; }
+    else { var next = mq.matches ? 'Light' : 'Dark'; label.textContent = next; btn.setAttribute('aria-label','Switch to ' + next.toLowerCase() + ' theme'); btn.title = 'Following your system setting — switch to ' + next.toLowerCase(); }
+  }
+  if (btn) btn.addEventListener('click', function(){
+    try {
+      if (stored()) localStorage.removeItem('color-scheme');
+      else localStorage.setItem('color-scheme', mq.matches ? 'light' : 'dark');
+    } catch (e) {}
+    apply();
+  });
+  mq.addEventListener('change', apply);
+  apply();
+})();
+</script>
+
+</body>
+</html>
